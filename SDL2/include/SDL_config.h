@@ -32,10 +32,6 @@
 /* General platform specific identifiers */
 #include "SDL_platform.h"
 
-/* Make sure that this isn't included by Visual C++ */
-#ifdef _MSC_VER
-#error You should run git checkout -f include/SDL_config.h
-#endif
 
 /* C language features */
 /* #undef const */
@@ -91,6 +87,9 @@
 #define HAVE_SETENV 1
 #define HAVE_PUTENV 1
 #define HAVE_UNSETENV 1
+#else
+#undef HAVE_STRINGS_H
+#undef HAVE_ALLOCA_H
 #endif
 #define HAVE_QSORT 1
 #define HAVE_BSEARCH 1
